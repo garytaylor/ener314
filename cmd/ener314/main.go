@@ -42,6 +42,13 @@ func main() {
 				// dev.Diagnostics(msg.SensorId)
 				// dev.SetValveState(msg.SensorId, ener314.VALVE_STATE_OPEN)
 				// dev.ReportInterval(msg.SensorId, 300)
+			case ener314.TemperatureSet:
+				log.Printf("%06x Temperature set: %.2f°C\n", msg.SensorId, t.Value)
+				// dev.TargetTemperature(msg.SensorId, 10)
+				// dev.Voltage(msg.SensorId)
+				// dev.Diagnostics(msg.SensorId)
+				// dev.SetValveState(msg.SensorId, ener314.VALVE_STATE_OPEN)
+				// dev.ReportInterval(msg.SensorId, 300)
 			case ener314.Voltage:
 				log.Printf("%06x Voltage: %.2fV\n", msg.SensorId, t.Value)
 			case ener314.Diagnostics:

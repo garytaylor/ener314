@@ -30,11 +30,24 @@ type Temperature struct {
 	Value float64
 }
 
+type TemperatureSet struct {
+	Value float64
+}
+
 func (t Temperature) String() string {
 	return fmt.Sprintf("Temperature{%f}", t.Value)
 }
 
 func (t Temperature) Encode(buf ByteAndBytesWriter) {
+	buf.WriteByte(OT_TEMP_SET)
+	buf.Write(encodeFloat64(ENC_SFPp8, t.Value))
+}
+
+func (t TemperatureSet) String() string {
+	return fmt.Sprintf("Temperature set to {%f}", t.Value)
+}
+
+func (t TemperatureSet) Encode(buf ByteAndBytesWriter) {
 	buf.WriteByte(OT_TEMP_SET)
 	buf.Write(encodeFloat64(ENC_SFPp8, t.Value))
 }
