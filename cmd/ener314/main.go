@@ -46,6 +46,8 @@ func main() {
 				log.Printf("%06x Voltage: %.2fV\n", msg.SensorId, t.Value)
 			case ener314.Diagnostics:
 				log.Printf("%06x Diagnostic report: %s\n", msg.SensorId, t)
+			default:
+				log.Printf("%06x Unknown type: %s ", msg.SensorId, msg.String())
 			}
 
 			log.Printf("Device temperature (approx): %dC", dev.GetTemperature())
