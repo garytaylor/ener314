@@ -49,9 +49,6 @@ func main() {
 			default:
 				log.Printf("%06x Unknown type: %s ", msg.SensorId, msg.String())
 			}
-
-			log.Printf("Device temperature (approx): %dC", dev.GetTemperature())
-			log.Printf("RSSI: %.1fdB", dev.GetRSSI())
 		}
 	}
 }
